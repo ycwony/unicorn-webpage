@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>국제 유니콘의 날</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@700&display=swap" rel="stylesheet" />
+
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100vw;
+      height: 100vh;
+      font-family: 'Noto Sans KR', sans-serif;
+      color: white;
+      transition: background-color 0.5s ease;
+    }
+
+    body {
+      position: relative;
+      background-image: url('sky.png');
+      background-size: cover;
+      background-position: center;
+      background-color: #d8d6e3;
+    }
+
+    body::before, #bg {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+    }
+
+    body::before {
+      background: rgba(0, 0, 0, 0.3);
+      z-index: 0;
+    }
+
+    #bg {
+      background: #b9c0d3;
+      opacity: 0;
+      transition: opacity 3s ease;
+      z-index: 1; 
+    }
+
+    .marquee-container {
+      width: 100%;
+      background-color: black;
+      color: white;
+      padding: 1px 0;
+      font-size: 16px;
+      font-weight: 500;
+    }
+
+    .unicorn-layout {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      gap: 40px;
+      padding: 50px;
+      align-items: flex-start;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 32px;
+      line-height: normal;
+      width: 200px;
+      flex-shrink: 0;
+    }
+
+    .glow-cycle {
+      animation: glowPinkCycle 3s infinite ease-in-out;
+    }
+
+    @keyframes glowPinkCycle {
+      0%, 100% { color: white; text-shadow: none; }
+      50% { color: #ff4dfb; text-shadow: 0 0 4px #ff4dfb, 0 0 8px #ff4dfb, 0 0 12px #ff4dfb; }
+    }
+
+    .unicorn-paragraphs {
+      flex: 1;
+      max-width: 1000px;
+      padding-top: 0;
+    }
+
+    .unicorn-paragraphs p, .unicorn-paragraphs em {
+      font-size: 32px;
+      line-height: 1.8;
+      margin-bottom: 0 0 24px 0;
+      word-break: keep-all;
+    }
+
+    .unicorn-paragraphs p:first-child {
+      margin-top: 0;
+    }
+
+    .section-divider {
+      border: none;
+      border-top: 1px solid white;
+      margin: 80px 0;
+      opacity: 0.5;
+    }
+
+    .unicorn-image {
+      width: 90%;
+      margin: 80px 0 40px;
+      display: block;
+      border-radius: 20px;
+    }
+
+    #inspired-layout .image-container {
+      column-count: 3;
+      column-gap: 24px;
+      padding: 20px 0;
+    }
+
+    .section {
+      break-inside: avoid;
+      margin-bottom: 24px;
+    }
+
+    .image-item {
+      width: 100%;
+      position: relative;
+      overflow: hidden;
+      margin-bottom: 8px;
+    }
+
+    .square { height: 300px; }
+    .tall { height: 450px; }
+    .wide { height: 200px; }
+    .long { height: 500px; }
+
+    .image-item.wide .with-overlay {
+      background-size: cover;
+      background-position: center center; /* 꼭 center center로 고정 */
+    }
+
+    .image.with-overlay {
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+      background-position: center;
+      position: relative;
+      transition: filter 0.3s ease;
+    }
+
+    .image-item.wide .overlay p {
+    margin: 0;
+  }
+
+    .overlay, .image-blur-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      transition: 0.3s ease;
+    }
+
+    .overlay {
+      background: #92a1c6;
+      color: #f5f6fa;
+      font-size: 18px;
+      line-height: 1.8;
+      padding: 16px;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      overflow-y: auto; /* ⭐ 추가!! */
+      text-align: left; /* ⭐ 줄 맞추기 깔끔하게 */
+    }
+
+    .overlay p {
+      font-size: 18px;
+      line-height: 1.8;
+    }
+
+    .image-blur-overlay {
+      backdrop-filter: blur(4px);
+    }
+
+    .with-overlay:hover .overlay, .with-overlay:hover .image-blur-overlay {
+      opacity: 1;
+    }
+
+    .caption {
+      font-weight: 600;
+      margin-top: 8px;
+      color: white;
+    }
+
+    .unicorn-banner {
+      position: fixed;
+      bottom: 0;
+      right: 0;
+      width: 300px;
+      opacity: 0;
+      transition: opacity 1s ease;
+      z-index: 10;
+      cursor: pointer;
+    }
+
+    .unicorn-banner.visible {
+      opacity: 1;
+    }
+
+    .highlight {
+      color: #ffbbfe; /* ✨ 포인트 컬러 */
+      font-weight: bold; /* ✨ 살짝 굵게 */
+      text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+    }
+
+    .overlay, .image-blur-overlay {
+      opacity: 0;
+      filter: blur(2px);
+      transition: opacity 0.6s ease, filter 0.6s ease;
+    }
+
+    .with-overlay:hover .overlay, .with-overlay:hover .image-blur-overlay {
+      opacity: 1;
+      filter: blur(0px);
+    }
+
+
+    /* ✨ 2번 효과: 이미지 zoom-in */
+    .image.with-overlay {
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+      background-position: center;
+      position: relative;
+      transition: transform 0.5s ease;
+    }
+
+    .image.with-overlay:hover {
+      transform: scale(1.03) ;
+    }
+
+  </style>
+</head>
+
+<body>
+<div class="marquee-container">
+  <marquee behavior="scroll" direction="left">Unicorn.......🦄</marquee>
+</div>
+
+<div id="bg"></div>
+
+<!-- 메인 본문 -->
+<div class="unicorn-layout">
+  <div>
+    <h1><span class="glow-cycle">국제<br>유니콘의 날</span></h1>
+  </div>
+  <div class="unicorn-paragraphs">
+    <p>오랜 전통을 가지는 신화 속의 존재 유니콘의 가치를 기리며<br>4월 9일을 <em>국제 유니콘의 날</em> 로 정하고 기념한다.</em></p>
+    <p>2015년, 익명의 누군가에 의해 유니콘의 날이 제정되었다.<br>유니콘이라는 사랑받는 전설적 존재를 기리면서, 그가 상징하는 마법, 순수함, 그리고 기쁨을 축하하기 위한 특별한 하루이다.</p>
+    <p>4월 9일은 유니콘을 기리는 특별한 날이다. 이 날은 전 세계적으로 유니콘의 순수함과 신비로움을 축하하는 날로, 유니콘이 상징하는 다양한 의미를 되새기게 한다. <br>유니콘은 고대부터 전해지는 전설 속의 동물로,
+       아름다움, 순수함, 신성함의 상징으로 여겨진다. 그만의 독특한 뿔과 고귀한 모습은 사람들에게 희망과 기쁨을 전달한다고 믿어진다. 유니콘의 날에는 다양한 문화와 예술 작품에서 유니콘을 주제로 한 재미있는 이벤트를 열고 즐긴다. 
+       <br>이 특별하고 요상한 날은 우리 안에 숨겨진 상상력과 순수함을 일깨워주며 잊고 지내던 꿈을 다시 떠올리게 한다. 유니콘을 통해 순수함과 환상적인 세계로 돌아갈 수 있는 기회를 제공한다.</p>
+    <img src="unicorns.jpg" alt="happy" class="unicorn-image"/>
+    <hr class="section-divider" />
+    <p>유니콘의 날과 비슷한 기념일</p>
+
+    <section id="inspired-layout">
+      <div class="image-container">
+    
+        <div class="section">
+          <div class="image-item wide">
+            <div class="image with-overlay" style="background-image: url('dddd.jpg');">
+              <div class="overlay">
+                <p>Dragon Day 1월 16일 <br>드래곤 데이는 <span class="highlight">드래곤</span>이라는 신비로운 존재를 기념하며 전 세계에서 축하하는 날이다. 다양한 문화 속 드래곤의 의미를 돌아보는 기회를 제공한다.</p>
+              </div>
+            </div>
+          </div>
+          <div class="caption">드래곤 데이</div>
+        </div>
+    
+        <div class="section">
+          <div class="image-item tall">
+            <div class="image with-overlay" style="background-image: url('fairyy.jpg');">
+              <div class="overlay">
+                <p>International Fairy Day <br>6월 24일<br>국제 요정의 날은 자연과 조화를 이루는 신비로운 존재인 <span class="highlight">요정을 기념하는 날</span>로, 상상력을 자극하는 다양한 행사가 열린다.</p>
+              </div>
+            </div>
+          </div>
+          <div class="caption">국제 요정의 날</div>
+        </div>
+    
+        <div class="section">
+          <div class="image-item square">
+            <div class="image with-overlay" style="background-image: url('krampuss.jpg');">
+              <div class="overlay">
+                <p>Krampusnacht Day <br>12월 5일<br><span class="highlight">크람푸스의 밤</span>은 중세 유럽 전통에서 유래된 행사로, 착하지 않은 아이들을 벌하는 괴물 크람푸스를 기리는 날이다.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="caption">크람푸스의 밤</div>
+        </div>
+    
+        <div class="section">
+          <div class="image-item long">
+            <div class="image with-overlay" style="background-image: url('cattt.jpg');">
+              <div class="overlay">
+                <p>International Cat Day <br>8월 8일<br>고양이의 날은 <span class="highlight">고양이</span>를 사랑하는 사람들이 다 함께 모여 고양이의 가치를 되새기는 날이다.</p>
+              </div>
+            </div>
+          </div>
+          <div class="caption">세계 고양이의 날</div>
+        </div>
+    
+        <div class="section">
+          <div class="image-item wide">
+            <div class="image with-overlay" style="background-image: url('wand.jpg');">
+              <div class="overlay">
+                <p>Magic Day 4월 30일<br>매직 데이는 <span class="highlight">마법세계를 기리는 날</span>로, 상상력과 신비로움을 경험할 수 있는 다양한 행사가 열린다.</p>
+              </div>
+            </div>
+          </div>
+          <div class="caption">매직 데이</div>
+        </div>
+    
+        <div class="section">
+          <div class="image-item tall">
+            <div class="image with-overlay" style="background-image: url('hp.jpg');">
+              <div class="overlay">
+                <p>Harry Potter Day <br>7월 31일<br><span class="highlight">해리 포터의 날</span>은 마법과 환상, 용기와 우정을 기리는 행사로, 해리 포터 팬들이 함께 모여 축하하는 날이다.</p>
+              </div>
+            </div>
+          </div>
+          <div class="caption">해리포터의 날</div>
+        </div>
+    
+        <div class="section">
+          <div class="image-item square">
+            <div class="image with-overlay" style="background-image: url('ghost.jpg');">
+              <div class="overlay">
+                <p>World Ghost Day <br>9월 30일<br>세계 유령의 날은 <span class="highlight">유령과 신비한 존재</span>를 기념하며 다양한 문화 행사와 축제가 열리는 날이다.</p>
+              </div>
+            </div>
+          </div>
+          <div class="caption">세계 유령의 날</div>
+        </div>
+    
+        <div class="section">
+          <div class="image-item tall">
+            <div class="image with-overlay" style="background-image: url('bada.jpg');">
+              <div class="overlay">
+                <p>World Oceans Day <br>6월 8일<br><span class="highlight">해양의 날</span>은 바다와 해양 생태계의 중요성을 되새기고 보호를 촉구하는 세계적인 기념일이다.</p>
+              </div>
+            </div>
+          </div>
+          <div class="caption">해양의 날</div>
+        </div>
+
+
+      </div>
+    </section>
+  </div>
+</div>
+
+<a href="index.html">
+  <img src="unicorn.png" id="unicornBanner" class="unicorn-banner" alt="Unicorn" />
+</a>
+
+<script>
+const unicornBanner = document.getElementById("unicornBanner");
+
+function resizeUnicorn() {
+  const layout = document.querySelector(".unicorn-layout");
+  const h1Width = 200, gap = 40, pMaxWidth = 1000, padding = 60 * 2;
+  const totalUsed = h1Width + gap + pMaxWidth + padding;
+  const free = window.innerWidth - totalUsed;
+  unicornBanner.style.width = free > 0 ? Math.min(free, 400) + "px" : "0px";
+}
+
+window.addEventListener("resize", resizeUnicorn);
+window.addEventListener("load", () => {
+  unicornBanner.classList.add("visible");
+  resizeUnicorn();
+  document.getElementById('bg').style.opacity = '1';
+});
+
+const bg = document.getElementById('bg');
+const triggerPoint = window.innerHeight / 2;
+
+window.addEventListener('scroll', () => {
+  const scrollY = window.scrollY;
+  bg.style.opacity = scrollY > triggerPoint ? 1 : 0;
+});
+</script>
+
+</body>
+</html>
