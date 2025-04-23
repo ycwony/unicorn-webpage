@@ -37,6 +37,7 @@
       height: 100%;
       pointer-events: none;
     }
+    
 
     body::before {
       background: rgba(0, 0, 0, 0.3);
@@ -247,10 +248,18 @@
       transform: scale(1.03) ;
     }
 
+    .blur-overlay {
+      position: fixed;
+      inset: 0;
+      backdrop-filter: blur(5px);
+      z-index: 0;
+      pointer-events: none;
+    }
   </style>
 </head>
 
 <body>
+  <div class="blur-overlay"></div>
 <div class="marquee-container">
   <marquee behavior="scroll" direction="left">Unicorn.......🦄</marquee>
 </div>
