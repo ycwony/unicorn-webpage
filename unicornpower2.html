@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>유니콘의 능력은?</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@700&display=swap" rel="stylesheet" />
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100vw;
+      height: 100vh;
+      font-family: 'Noto Sans KR', sans-serif;
+      color: white;
+    }
+
+    body {
+      background-image: url('sky.png');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      position: relative;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.3);
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .unicorn-layout {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+      gap: 40px;
+      padding: 84px 50px;
+      margin-top: -30px;
+    }
+
+    .unicorn-layout h1 {
+      margin: 0;
+      font-size: 32px;
+      line-height: 1.4;
+      width: 200px;
+      flex-shrink: 0;
+      position: relative;
+    }
+
+    .glow-cycle {
+      animation: glowPinkCycle 3s infinite ease-in-out; 
+    }
+
+    @keyframes glowPinkCycle {
+      0%, 100% { color: white; text-shadow: none; }
+      50% {
+        color: #ff4dfb;
+        text-shadow: 0 0 4px #ff4dfb, 0 0 8px #ff4dfb, 0 0 12px #ff4dfb;
+      }
+    }
+
+    .unicorn-paragraphs {
+      flex: 1;
+      max-width: 1000px;
+    }
+
+    body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+    }
+
+  .unicorn-paragraphs p {
+   line-height: 1.8;
+   margin: 0 0 60px 0;
+   line-break: keep-all;
+   margin-bottom: 80px;
+   margin-top: 16px;
+   text-align: justify;
+   letter-spacing: -0.5px;
+  }
+
+  .unicorn-columns {
+  column-count: 2;
+  column-gap: 60px;
+  column-rule: none ;
+  margin-top:20px;
+  }
+    
+    .unicorn-paragraphs .large-text {
+      font-size: 32px; 
+      margin-bottom: 40px; 
+      margin-top: 0; 
+      line-height: 1.8;   
+      letter-spacing: -2px;
+      word-break: keep-all;
+      text-align: left;
+    }
+
+    .unicorn-paragraphs .small-text {
+      font-size: 18px; 
+      margin-top: 1px;
+      margin-bottom: 30px; 
+      line-height: 1.8; 
+      letter-spacing: -0.95px;
+      word-break: keep-all;
+      text-align: left;
+    }
+
+    .unicorn-image-box {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 0;
+    }
+
+    .unicorn-image-box img {
+      width: 200px;
+      margin-top: 20px; margin-right: 20px;
+      animation: float 3s ease-in-out infinite;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .unicorn-image-box img:hover {
+      animation: sparkle 1s infinite, float 3s ease-in-out infinite;
+      transform: scale(1.05);
+    }
+    .unicorn-image-box h1 {
+  margin-bottom: 48px;
+  transform: translateY(10px);}
+
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    @keyframes sparkle {
+      0% { filter: brightness(1); }
+      50% { filter: brightness(2) drop-shadow(0 0 8px #fff176); }
+      100% { filter: brightness(1); }
+    }
+
+    .unicorn-banner {
+      position: fixed;
+      bottom: 0;
+      right: 0;
+      z-index: 10;
+      opacity: 0;
+      transition: opacity 0.5s ease;
+      cursor: pointer;
+    }
+
+    .unicorn-banner.visible {
+      opacity: 1;
+    }
+
+    .modal-background {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background-color: rgba(0, 0, 0, 0.6);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 999;
+    }
+
+    .modal {
+      background: white;
+      color: #444;
+      padding: 20px 30px;
+      border-radius: 10px;
+      max-width: 500px;
+      text-align: center;
+      box-shadow: 0 0 20px rgba(0,0,0,0.3);
+      text-align: center;
+      line-height: 1.85;
+      font-size: 16;
+    }
+
+
+    .close-btn {
+      margin-top: 20px;
+      padding: 7px 15px;
+      background: #ff69b4;
+      font-family: 'Noto Sans KR', sans-serif;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .close-btn:hover {
+      background: #e91e63;
+    }
+    .blur-overlay {
+      position: fixed;
+      inset: 0;
+      backdrop-filter: blur(5px);
+      z-index: 0;
+      pointer-events: none;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="blur-overlay"></div>
+  <div style="width: 100%; color: white; padding: 1px 0; font-size: 16px; font-weight: 500;">
+    <marquee behavior="scroll" direction="left">Unicorn.......🦄</marquee>
+  </div>
+
+  <div class="unicorn-layout">
+    <div class="unicorn-image-box">
+      <h1><span class="glow-cycle">유니콘의 능력</span></h1>
+      <img src="unio12.png" alt="유니콘 이미지" id="unicornImg"/>
+    </div>
+    
+    <div class="unicorn-paragraphs">
+      
+      <p class="large-text">
+        유니콘은 많은 전설과 신화 속에서 다양한 능력을 지닌 존재로 묘사된다. 유니콘의 뿔은 다재다능하고 매우 신비로운 힘을 지니고 있으며, 유니콘의 힘의 원천은 바로 이 뿔에서 나온다. 따라서 뿔만 잘 보존되면 그 힘이 약해지지 않는다.
+      </p>
+      <div class="unicorn-columns">
+      <p class="small-text">
+        중세 유럽에서는 유니콘의 뿔이 독을 해독하는 힘이 있다고 믿어 왕족들이 이를 컵이나 장신구로 만들어 사용했다. 실제로 프랑스의 왕 앙리 4세는 ‘알리콘 컵’을 가지고 다니며 음식에 독이 들어 있는지를 확인했다고 전해진다. 
+      </p>
+      <p class="small-text">유니콘의 뿔과 눈물은 황폐한 땅을 다시 푸르게 만드는 신비한 힘이 있다고 알려져 있으며 마법사들은 이를 마법 지팡이의 핵심 재료로 활용해 마법의 힘을 극대화했다. 특히 켈트 신화에서는 드루이드들이 유니콘의 뿔을 자연의 힘을 증폭시키는 채널로 사용했다고 전해진다. 
+        유니콘의 뿔 가루는 치유와 생명 연장의 효과가 있다고 믿어졌고, 순수한 마음을 지닌 자에게만 그 모습을 드러낸다는 전설도 있다.</p>
+      
+
+      <p class="small-text">
+        유니콘의 뿔은 마법뿐만 아니라 물리적인 전투에도 강하다. 뿔은 유니콘이 지닌 강력한 무기로, 매우 뾰족하고 날카로워 조심해야 한다. 하지만 유니콘은 공격성이 높은 동물이 아니라 경계심이 강한 존재이다. 먼저 위협하지 않는 이상 유니콘이 먼저 공격하는 일은 없다.
+    </div>
+  </div>
+</div>
+  <a href="index.html">
+    <img src="unicorn.png" id="unicornBanner" class="unicorn-banner" alt="Unicorn Banner" />
+  </a>
+
+  <!-- 유니콘 능력 팝업 -->
+  <div class="modal-background" id="modalBg">
+    <div class="modal">
+      <p>
+        <span style="line-height: 3; font-size: 18px;">✤ 유니콘의 뿔의 능력 ✤</span><br>
+        • 독을 해독하는 효과가 있다.<br>
+        • 순수한 마음을 지닌 자에게만 모습을 드러낸다.<br>
+        • 무병장수 혹은 영생을 얻을 수 있다.<br>
+        • 뿔은 마법의 효과를 증폭시키는 역할을 한다.<br>
+        • 뿔에 닿는 생물은 거짓말을 할 수 없다.<br>
+      </p>
+      <button class="close-btn" id="closeBtn">닫기</button>
+    </div>
+  </div>
+
+  
+
+  <script>
+    const unicornBanner = document.getElementById("unicornBanner");
+    const unicornImg = document.getElementById("unicornImg");
+    const modalBg = document.getElementById("modalBg");
+    const closeBtn = document.getElementById("closeBtn");
+
+    const druidLink = document.getElementById("druidLink");
+    const modalDruid = document.getElementById("modalDruid");
+    const closeDruid = document.getElementById("closeDruid");
+
+    unicornImg.addEventListener("click", () => {
+      modalBg.style.display = "flex";
+    });
+
+    closeBtn.addEventListener("click", () => {
+      modalBg.style.display = "none";
+    });
+
+    modalBg.addEventListener("click", (e) => {
+      if (e.target === modalBg) modalBg.style.display = "none";
+    });
+
+    
+    function resizeUnicorn() {
+      const layout = document.querySelector(".unicorn-layout");
+      const totalUsed = 200 + 40 + 1000 + 120;
+      const free = window.innerWidth - totalUsed;
+      unicornBanner.style.width = free > 0 ? Math.min(free, 400) + "px" : "0px";
+    }
+
+    window.addEventListener("resize", resizeUnicorn);
+    window.addEventListener("load", () => {
+      unicornBanner.classList.add("visible");
+      resizeUnicorn();
+    });
+  </script>
+</body>
+</html>

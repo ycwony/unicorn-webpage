@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>국제 유니콘의 날</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@700&display=swap" rel="stylesheet" />
+
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100vw;
+      height: 100vh;
+      font-family: 'Noto Sans KR', sans-serif;
+      color: white;
+      transition: background-color 0.5s ease;
+    }
+
+    body {
+      position: relative;
+      background-image: url('sky.png');
+      background-size: cover;
+      background-position: center;
+      background-color: #d8d6e3;
+      overflow-x: hidden;
+      background-attachment: fixed;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.3);
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .marquee-container {
+      width: 100%;
+      color: white;
+      padding: 1px 0;
+      font-size: 16px;
+      font-weight: 500;
+    }
+
+    .unicorn-layout {
+      display: flex;
+      align-items: flex-start;
+      gap: 60px;
+      padding: 50px;
+      position: relative;
+      z-index: 2;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 32px;
+      line-height: normal;
+      flex-shrink: 0;
+    }
+
+    .glow-cycle {
+      animation: glowPinkCycle 3s infinite ease-in-out;
+    }
+
+    @keyframes glowPinkCycle {
+      0%, 100% {
+        color: white;
+        text-shadow: none;
+      }
+      50% {
+        color: #ff4dfb;
+        text-shadow: 0 0 4px #ff4dfb,
+                     0 0 8px #ff4dfb,
+                     0 0 12px #ff4dfb;
+      }
+    }
+
+    .text-column {
+      max-width: 1000px;
+      width: 100%;
+    }
+
+    .text-column p {
+      font-size: 32px;
+      line-height: 1.8;
+      word-break: keep-all;
+      margin-top: 0;
+    }
+    .blur-overlay {
+      position: fixed;
+      inset: 0;
+      backdrop-filter: blur(5px);
+      z-index: 0;
+      pointer-events: none;
+    }
+    .float-img {
+      float: left;
+      width: 470px;
+      margin-right: 20px;
+      margin-top: 13px;
+      margin-bottom: 10;
+    }
+
+    .unicorn-banner {
+      position: fixed;
+      bottom: 0;
+      right: 0;
+      width: 0;
+      opacity: 0;
+      transition: width 0.3s ease, opacity 1s ease;
+      z-index: 10;
+      cursor: pointer;
+    }
+
+    .unicorn-banner.visible {
+      opacity: 1;
+    }
+
+    /* 🦄 glow-word 효과 스타일 */
+    .glow-word {
+      font-weight: 700;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      color: white;
+      text-shadow: 0 0 1px white;
+      position: relative;
+      z-index: 10;
+    }
+
+    .glow-word.dimmed { opacity: 0.3; }
+
+    .glow-word.active {
+      color: #ff4dfb;
+      filter: drop-shadow(0 0 1px #ff4dfb)
+              drop-shadow(0 0 3px #ff4dfb);
+      opacity: 1;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="blur-overlay"></div>
+  <div class="marquee-container">
+    <marquee behavior="scroll" direction="left">Unicorn.......🦄</marquee>
+  </div>
+
+  <!-- Layout -->
+  <div class="unicorn-layout">
+    <h1><span class="glow-cycle">국제<br>유니콘의 날</span></h1>
+
+    <div class="text-column">
+      <p>
+        <img src="unicorns.png" alt="happy unicorn" class="float-img" />
+        4월 9일은 전 세계적으로 유니콘의 상징성과 아름다움을 기념하는 '국제 유니콘의 날'이다. 
+        2015년 처음 제정된 이 날은 마법과 순수함, 기쁨을 상징하는 유니콘의 가치를 되새기기 위해 만들어졌다. 
+        유니콘은 고대부터 동서양 신화에 등장하며 꿈과 희망의 존재로 사랑받아 왔다. 
+        이날을 맞아 세계 곳곳에서는 유니콘을 주제로 한 퍼레이드나 소셜 미디어 캠페인이 열리고, 
+        유니콘 굿즈나 디저트를 즐기며 각자의 방식으로 축하하는 문화가 형성되었다. 
+        특히 이 날은 바쁜 일상 속에서도 잠시 동심과 상상력을 되찾자는 의미를 담고 있다. 
+        ‘국제 유니콘의 날’은 이제 하나의 놀이를 넘어, 모두가 작은 기적을 믿어보는 따뜻한 날로 자리 잡아가고 있으며, 
+        이처럼 상상과 환상을 주제로 한 
+        <a href="holidays.html" style="text-decoration: none; color: inherit;">
+          <span class="glow-word">특별한 기념일</a></span>들은 전 세계 곳곳에서 다양한 형태로 이어지고 있다.
+      </p>
+    </div>
+  </div>
+
+  <!-- 배너 -->
+  <a href="index.html">
+    <img
+      src="unicorn.png"
+      id="unicornBanner"
+      class="unicorn-banner visible"
+      alt="Unicorn"
+    />
+  </a>
+
+  <!-- ✨ Script: 배너 크기 및 glow 효과 -->
+  <script>
+    const unicornBanner = document.getElementById('unicornBanner');
+
+    function resizeUnicorn() {
+      const maxWidth = 400;
+      const usedWidth = 1000 + 60 + 200 + 60;
+      const free = window.innerWidth - usedWidth;
+      unicornBanner.style.width = free > 0
+        ? Math.min(free, maxWidth) + 'px'
+        : '0px';
+    }
+
+    window.addEventListener('resize', resizeUnicorn);
+    window.addEventListener('load', resizeUnicorn);
+
+    // ✨ glow-word 인터랙션
+    const glowWords = document.querySelectorAll('.glow-word');
+    glowWords.forEach(word => {
+      word.addEventListener('mouseenter', () => {
+        glowWords.forEach(w => {
+          w.classList.remove('active');
+          w.classList.add('dimmed');
+        });
+        word.classList.add('active');
+        word.classList.remove('dimmed');
+      });
+
+      word.addEventListener('mouseleave', () => {
+        glowWords.forEach(w => {
+          w.classList.remove('active');
+          w.classList.remove('dimmed');
+        });
+      });
+    });
+  </script>
+</body>
+</html>

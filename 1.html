@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>4월 9일</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@700&display=swap" rel="stylesheet" />
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      min-height: 100vh;
+      font-family: 'Noto Sans KR', sans-serif;
+      background-image: url('sky.png');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      color: white;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background-color: rgba(0, 0, 0, 0.3);
+      z-index: 0;
+    }
+
+    .marquee {
+      width: 100%;
+      color: white;
+      font-size: 16px;
+      padding: 4px 0;
+      font-weight: 500;
+      position: relative;
+      z-index: 1;
+    }
+
+    .page-layout {
+      display: flex;
+      align-items: flex-start;
+      gap: 40px;
+      padding: 50px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .left-title {
+      width: 200px;
+      flex-shrink: 0;
+    }
+
+    .left-title h1 {
+      font-size: 32px;
+      margin: 0;
+    }
+
+    .right-content {
+      flex: 1;
+      max-width: clamp(700px, 85vw, 1100px);
+      padding-right: 40px; /* 유니콘 안 침범하게! */
+    }
+
+    .intro-paragraph {
+      font-size: 22px;
+      line-height: 1.8;
+      margin-bottom: 2em;
+    }
+
+    .main-text {
+  font-size: 18px;
+  line-height: 1.8;
+  column-count: 2;
+  column-gap: 60px;
+  padding-right: 40px;
+  hyphens: none;
+  word-break: keep-all;
+}
+
+    .main-text p {
+      margin-bottom: 1.5em;
+      margin-top: 0;
+    }
+
+    .main-text::after {
+      content: "";
+      display: block;
+      clear: both;
+    }
+
+      .full-width-images {
+    column-span: all;
+    break-inside: avoid;
+    display: flex;
+    justify-content: space-between;
+    margin: 40px 0;
+    gap: 12px;
+
+    /* ✨ 본문 너비와 딱 맞추기! */
+    max-width: 90%;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  .blur-overlay {
+      position: fixed;
+      inset: 0;
+      backdrop-filter: blur(5px);
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .full-width-images img {
+      flex: 1;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      max-height: 120px; /* 살짝 줄임 */
+      border-radius: 6px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+      transform: rotate(var(--angle));
+    }
+
+    .full-width-images img:nth-child(1) {
+  --angle: -2deg;
+  --offset: 10px;
+}
+.full-width-images img:nth-child(2) {
+  --angle: 1deg;
+  --offset: -10px;
+}
+.full-width-images img:nth-child(3) {
+  --angle: -1deg;
+  --offset: 12px;
+}
+.full-width-images img:nth-child(4) {
+  --angle: 2deg;
+  --offset: -12px;
+}
+.full-width-images img:nth-child(5) {
+  --angle: -2deg;
+  --offset: 14px;
+}
+.full-width-images img:nth-child(6) {
+  --angle: 1deg;
+  --offset: -14px;
+}
+    .unicorn-banner {
+      position: fixed;
+      bottom: 0;
+      right: 0;
+      height: auto;
+      z-index: 10;
+      opacity: 0;
+      transition: opacity 0.5s ease;
+      cursor: pointer;
+    }
+
+    .unicorn-banner.visible {
+      opacity: 1;
+    }
+
+    .glow-cycle {
+      animation: glowPinkCycle 3s infinite ease-in-out;
+    }
+
+    @keyframes glowPinkCycle {
+      0%, 100% {
+        color: white;
+        text-shadow: none;
+      }
+      50% {
+        color: #ff4dfb;
+        text-shadow: 0 0 4px #ff4dfb, 0 0 8px #ff4dfb, 0 0 12px #ff4dfb;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .main-text {
+        column-count: 1;
+        padding-right: 0;
+      }
+
+      .full-width-images {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .full-width-images img {
+        width: 90%;
+        margin-bottom: 12px;
+        transform: none;
+      }
+     
+      
+    }
+  </style>
+</head>
+<body>
+  <div class="blur-overlay"></div>
+  <div class="marquee">
+    <marquee behavior="scroll" direction="left">Unicorn.......🦄</marquee>
+  </div>
+
+  <div class="page-layout">
+    <div class="left-title">
+      <h1><span class="glow-cycle">4월 9일</span></h1>
+    </div>
+
+    <div class="right-content">
+      <div class="intro-paragraph">
+        4월 9일은 단순한 하루 이상의 의미를 담고 있다. 역사의 다양한 지점에서 이 날은 놀랍도록 많은 전환점이 되어왔다.
+      </div>
+
+      <div class="full-width-images">
+        <img src="bt1.jpg" alt="image1" />
+        <img src="boing.png" alt="image2" />
+        <img src="ma.jpeg" alt="image3" />
+        <img src="marry.png" alt="image4" />
+        <img src="sorry.jpg" alt="image5" />
+        <img src="col.png" alt="image6" />
+      </div>
+
+      <div class="main-text">
+        <p>1965년 4월 9일, 전설적인 밴드 비틀즈(The Beatles)는 ‘Ticket to Ride’를 영국에서 발표했다. 경쾌한 멜로디와 실험적인 구성이 어우러진 이 곡은 당시로선 파격적이었고, 이후 비틀즈의 대표곡 중 하나로 자리매김하며 세계 음악사의 흐름을 뒤흔들었다. 그들은 단순한 밴드가 아닌, 시대의 아이콘이 되었고 그 출발점 중 하나가 바로 오늘이다. 그로부터 이틀이 지난 1967년, 또 하나의 이정표가 하늘 위에서 세워졌다. 보잉 737 항공기가 첫 비행을 성공시킨 것이다. ‘베이비 보잉’이라 불린 이 기체는 이후 수많은 상업 항공기의 기본 모델이 되었고, 오늘날에도 여전히 전 세계 하늘을 누비는 가장 대중적인 비행기로 남아 있다.</p>
+        <p>1939년의 오늘, 마리안 앤더슨이라는 흑인 성악가가 미국 링컨 기념관 앞에 섰다. 인종차별로 인해 정식 공연이 거부되자, 그녀는 7만 명의 군중 앞에서 노래했다. 그 순간은 단지 음악회가 아니었다. 그것은 저항이었고 선언이었다. 그녀의 목소리는 미국 시민권 운동의 상징적인 서곡이 되었다. 또한 2005년, 영국에서는 조금은 낭만적인 사건이 있었다. 찰스 왕세자가 오랜 연인 카밀라 파커 볼스와 결혼식을 올린 것이다. 왕실 전통에 맞서는 듯한 이 결혼은, 오랜 논란과 편견을 이겨낸 두 사람의 선택이었고, 영국 사회에 잔잔한 변화의 물결을 일으켰다.</p>
+        <p>하지만 4월 9일의 가장 무거운 기억은 1865년으로 거슬러 올라간다. 미국 남북전쟁의 마지막 날, 남부 연합의 로버트 E. 리 장군이 북부군의 그랜트 장군에게 항복함으로써 4년에 걸친 피비린내 나는 전쟁이 마침내 막을 내렸다. 그날은 단순히 전쟁의 끝이 아니라, 미국이라는 나라가 새로운 방향으로 향하게 된 기점이었다. 그리고 조금은 현대적인 사건도 있다. 1981년, 미국의 우주왕복선 콜럼비아호가 첫 발사를 성공시켰고, 그것은 인간이 지구 너머로 나아가는 새로운 시대의 출발점이었다. 우주를 향한 꿈이 과학기술의 현실로 바뀌는 그 찰나에도 4월 9일은 있었다.</p>
+        <p>이처럼 4월 9일은 장르도, 분야도, 국경도 뛰어넘는 이야기들을 품고 있다. 어쩌면 ‘역사’란 누군가의 의지와 행동이 겹쳐진 흔적일지도 모른다. 그리고 그 겹쳐진 날들 중, 오늘 같은 하루는 이상하리만치 유난스럽다.</p>
+      </div>
+    </div>
+  </div>
+
+  <a href="index.html">
+    <img src="unicorn.png" id="unicornBanner" class="unicorn-banner" alt="Unicorn" />
+  </a>
+
+  <script>
+    const unicornBanner = document.getElementById("unicornBanner");
+
+    function resizeUnicorn() {
+      const layout = document.querySelector(".page-layout");
+      const h1Width = 200;
+      const gap = 40;
+      const pMaxWidth = 1000;
+      const padding = 60 * 2;
+      const totalUsed = h1Width + gap + pMaxWidth + padding;
+      const free = window.innerWidth - totalUsed;
+      unicornBanner.style.width = free > 0 ? Math.min(free, 400) + "px" : "0px";
+    }
+
+    window.addEventListener("resize", resizeUnicorn);
+    window.addEventListener("load", () => {
+      document.querySelector(".unicorn-banner").classList.add("visible");
+      resizeUnicorn();
+    });
+  </script>
+</body>
+</html>
+
+

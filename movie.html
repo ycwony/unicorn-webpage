@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>4월 9일은</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@700&display=swap" rel="stylesheet" />
+
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100vw;
+      height: 100vh;
+      font-family: 'Noto Sans KR', sans-serif;
+      color: white;
+    }
+
+    body {
+      position: relative;
+      background-image: url('sky.png');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.3);
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .highlight {
+      color: #ff4dfb;
+      font-weight: bold;
+    }
+
+    .unicorn-paragraphs {
+      margin-top: -4px; /* 위로 20px 올림 (원하는 만큼 조절 가능) */
+    }
+    .unicorn-layout {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+      gap: 40px;
+      padding: 50px;
+      text-align: left;
+    }
+
+    .unicorn-layout h1 {
+      margin: 0;
+      font-size: 31px;
+      line-height: 1.4;
+      width: 200px;
+      flex-shrink: 0;
+      position: relative;
+    }
+
+    .unicorn-layout p {
+      font-size: 32px;
+      max-width: 1000px;
+      margin: 0px 0px 20px 0px;
+      word-break: keep-all;
+      overflow-wrap: break-word;
+      line-height: 1.6;
+      letter-spacing: normal;
+    }
+
+    .unicorn-layout p.small-text {
+      font-size: 18px;
+      line-height: 1.8;
+      margin-bottom: 60px;
+    }
+
+    .glow-cycle {
+      animation: glowPinkCycle 3s infinite ease-in-out;
+    }
+
+    @keyframes glowPinkCycle {
+      0%, 100% {
+        color: white;
+        text-shadow: none;
+      }
+      50% {
+        color: #ff4dfb;
+        text-shadow:
+          0 0 4px #ff4dfb,
+          0 0 8px #ff4dfb,
+          0 0 12px #ff4dfb;
+      }
+    }
+
+    .unicorn-banner {
+      position: fixed;
+      bottom: 0;
+      right: 0;
+      height: auto;
+      z-index: 10;
+      opacity: 0;
+      transition: opacity 0.5s ease;
+      cursor: pointer;
+    }
+
+    .unicorn-banner.visible {
+      opacity: 1;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    .content-img {
+      width: 100%;
+      max-width: 1000px;
+      height: auto;
+      display: block;
+      margin-bottom: 20px;
+      object-fit: cover;
+      transition: box-shadow 0.3s ease, transform 0.3s ease;
+      cursor: pointer;
+    }
+
+    .content-img:hover {
+      box-shadow: 0 0 20px 8px rgba(255, 255, 255, 0.6);
+      transform: scale(1.03);
+    }
+
+    .image-row {
+      display: flex;
+      justify-content: left;
+      gap: 40px;
+      margin-bottom: 20px;
+      max-width: 1000px;
+    }
+
+    .image-row a {
+      flex: 1;
+      text-decoration: none;
+    }
+
+    .image-row .content-img {
+      width: 100%;
+      height: 280px; /* 원하는 고정 높이 */
+      object-fit: cover;
+      transition: box-shadow 0.3s ease, transform 0.3s ease;
+      cursor: pointer;
+    }
+
+    .image-row .content-img:hover {
+      box-shadow: 0 0 20px 8px rgba(255, 255, 255, 0.6);
+      transform: scale(1.03);
+    }
+  </style>
+</head>
+<body>
+  <div style="width: 100%; color: white; padding: 1px 0; font-size: 16px; font-weight: 500;">
+    <marquee behavior="scroll" direction="left">Unicorn.......🦄</marquee>
+  </div> 
+
+  <div class="unicorn-layout">
+    <div>
+      <h1><span class="glow-cycle">매체 속 유니콘</span></h1>
+    </div>
+    <div class="unicorn-paragraphs">
+    <p>마이 리틀 포니 (My Little Pony, 2010~)</p>
+    <div class="image-row">
+      <a href="https://youtu.be/sQ9JLdEh1Qc?si=W2Zh9_aiMkZncvWi" target="_blank">
+        <img src="mylittlepony.jpg" alt="포니1" class="content-img"/>
+      </a>
+      <a href="https://youtu.be/sQ9JLdEh1Qc?si=W2Zh9_aiMkZncvWi" target="_blank">
+        <img src="mylittlepony2.jpg" alt="포니2" class="content-img" />
+      </a>
+    </div>
+    <p class="small-text">
+      시리<span style="letter-spacing:-0.3em;">즈</span> 『마이 리틀 포니<span style="letter-spacing:-0.3em;">』</span>에는 다양한 종류의 말 캐릭터들이 등장하는데,유니콘 포니들이 그중에서 중요한 역할을 맡고 있다. 대표적인 캐릭터인 트와일라잇 스파클은 뿔을 통해 마법을 사용할 수 있으며, 이야기의 주인공 중 하나이다. 유니콘 포니들은 마법적 능력, 지식, 창의성 등을 상징하며, 시리즈 전반에서 긍정적인 역할을 맡는다. 이처럼 유니콘은 친근하면서도 강력한 힘을 지닌 존재로 묘사된다.
+    </p>    
+    <p>
+      해리 포터 (Harry Potter, 2001~2011)
+    </p>
+    <div class="image-row"></div>
+    <a href="https://youtu.be/exzFROZjWOU?si=Xw9b4dLVzqI5dq5q" target="_blank">
+      <img src="harrypotter.jpg" alt="container" class="content-img" width="1000px"/>
+    </a>
+    <p class="small-text">  
+    세계적인 베스트셀<span style="letter-spacing:-0.3em;">러</span> 『해리 포터<span style="letter-spacing:-0.3em;">』</span> 시리즈에 등장하는 유니콘은 금빛 털을 지닌 신비로운 생명체로, 주로 금지된 숲에 서식하는 것으로 묘사된다. 유니콘의 피는 치유 능력이 매우 뛰어나 어떤 병이나 상처도 낫게 할 수 있지만, 피를 마시는 자는 저주받은 생을 살게 된다는 설정이 있다. 『해리 포터와 마법사의 돌』에서는 볼드모트가 유니콘의 피를 마셔 생명을 연장하려는 장면이 등장하며, 여기서 유니콘은 단순히 아름다운 존재를 넘어 생명력과 순수함의 상징으로 표현되고 있다.<br>
+    </p>
+    <p>
+      라스트 유니콘 (The Last Unicorn, 1968)
+    </p>
+    <div class="image-row">
+      <a href="https://youtu.be/Enq2pFpBz1s?si=W2g1rZ4sji47JWYY" target="_blank">
+        <img src="thelastunicorn.jpg" alt="포니1" class="content-img"/>
+      </a>
+      <a href="https://youtu.be/Enq2pFpBz1s?si=W2g1rZ4sji47JWYY" target="_blank">
+        <img src="thelastunicorn2.jpg" alt="포니2" class="content-img" />
+      </a>
+    </div>
+    <p class="small-text"> 
+    1968년 미국에서 출간돼 인기를 모은 소<span style="letter-spacing:-0.3em;">설</span> 『라스트 유니콘<span style="letter-spacing:-0.3em;">』</span>, 그리고 소설을 원작으로 만든 동명의 애니메이션 영화는 ‘세상에 남은 마지막 유니콘’을 주인공으로 내세운 이야기이다. 주인공 유니콘은 자신 외의 유니콘들이 모두 사라졌다는 소문을 듣고, 진실을 찾기 위해 인간 세계로 여정을 떠난다. 주인공 유니콘은 여정 중 마법에 의해 한때 인간의 모습으로 변하기도 하지만, 결국 본래의 정체성과 존재 의미를 되찾는다. 이 작품은 멸종, 자아, 존재의 본질에 대한 철학적 질문을 던지며, 단순한 판타지를 넘어 감성적이고 깊이 있는 서사를 담고 있다.<br>
+    </p>
+    <p>
+      디아블로 III (Diablo III, 2012)
+    </p>
+    <img src="diablo.jpg" alt="container" class="content-img"/>
+    <p class="small-text">
+      게<span style="letter-spacing:-0.3em;">임</span> 『디아블로 III<span style="letter-spacing:-0.3em;">』</span>에서는 본편과는 완전히 다른 분위기의 숨겨진 레벨인 ‘무지개 소젖 레벨 (Whimsyshire)’에서 유니콘이 등장한다. 이 곳에서는 알록달록하고 귀여운 유니콘들이 적으로 등장하며, 플레이어가 전투를 통해 쓰러뜨릴 수 있다. 유니콘은 무지개와 함께 폭발하거나 이상한 소리를 내며 죽음을 맞이한다. 순수하고 아름다운 유니콘의 전통적인 이미지를 비틀어 의도적으로 반전 효과를 노린 유쾌한 연출이다.
+    </p>
+    <div class="unicorn-paragraphs"></div>
+
+  </div>
+
+  <a href="index.html">
+    <img src="unicorn.png" id="unicornBanner" class="unicorn-banner" alt="Unicorn" />
+  </a>
+
+  <script>
+    const unicornBanner = document.getElementById("unicornBanner");
+
+    function resizeUnicorn() {
+      const layout = document.querySelector(".unicorn-layout");
+      const h1Width = 200;
+      const gap = 40;
+      const pMaxWidth = 1000;
+      const padding = 60 * 2;
+      const totalUsed = h1Width + gap + pMaxWidth + padding;
+      const free = window.innerWidth - totalUsed;
+      unicornBanner.style.width = free > 0 ? Math.min(free, 400) + "px" : "0px";
+    }
+
+    window.addEventListener("resize", resizeUnicorn);
+    window.addEventListener("load", () => {
+      document.querySelector(".unicorn-banner").classList.add("visible");
+      resizeUnicorn();
+    });
+  </script>
+</body>
+</html>

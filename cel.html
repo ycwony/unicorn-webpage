@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>기념하는 방법</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@700&display=swap" rel="stylesheet" />
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      min-height: 100vh;
+      font-family: 'Noto Sans KR', sans-serif;
+      background-image: url('sky.png');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      color: white;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background-color: rgba(0, 0, 0, 0.3);
+      z-index: 0;
+    }
+    .blur-overlay {
+      position: fixed;
+      inset: 0;
+      backdrop-filter: blur(5px);
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .marquee {
+      width: 100%;
+      color: white;
+      font-size: 16px;
+      font-weight: 500;
+      padding: 4px 0;
+      position: relative;
+      z-index: 1;
+    }
+
+    .page-layout {
+      display: flex;
+      gap: 40px;
+      padding: 50px;
+      position: relative;
+      z-index: 1;
+      align-items: flex-start;
+    }
+
+    .left-title {
+      width: 200px;
+      flex-shrink: 0;
+    }
+
+    .left-title h1 {
+      font-size: 32px;
+      margin: 0;
+      line-height: 1;
+    }
+
+    .right-content {
+      flex: 1;
+      margin-top: 0;
+    }
+
+    .main-text {
+      font-size: 18px;
+      line-height: 1.8;
+      column-count: 2;
+      column-gap: 60px;
+      padding-right: 40px;
+      word-break: keep-all;
+    }
+
+    .main-text p {
+      margin-bottom: 1.5em;
+    }
+
+    .main-text img {
+      width: 100%;
+      height: auto;
+      break-inside: avoid;
+      display: block;
+    }
+
+    .img-top-align {
+      margin-top: 2px;
+    }
+
+    .force-left {
+      break-after: column;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .glow-word {
+      font-weight: 700;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      color: white;
+      text-shadow: 0 0 1px white;
+      position: relative;
+      z-index: 10;
+    }
+
+    .glow-word.dimmed {
+      opacity: 0.3;
+    }
+
+    .glow-word.active {
+      color: #ff4dfb;
+      filter: drop-shadow(0 0 1px #ff4dfb) drop-shadow(0 0 3px #ff4dfb);
+      opacity: 1;
+    }
+
+    .glow-cycle {
+      animation: glowPinkCycle 3s infinite ease-in-out;
+    }
+
+    @keyframes glowPinkCycle {
+      0%, 100% {
+        color: white;
+        text-shadow: none;
+      }
+      50% {
+        color: #ff4dfb;
+        text-shadow: 0 0 4px #ff4dfb, 0 0 8px #ff4dfb, 0 0 12px #ff4dfb;
+      }
+    }
+
+    .unicorn-banner {
+      position: fixed;
+      bottom: 0;
+      right: 0;
+      z-index: 10;
+      opacity: 0;
+      transition: opacity 0.5s ease;
+      cursor: pointer;
+    }
+
+    .unicorn-banner.visible {
+      opacity: 1;
+    }
+
+    @media (max-width: 768px) {
+      .main-text {
+        column-count: 1;
+        padding-right: 0;
+      }
+      .main-text img {
+        width: 100%;
+        margin: 24px 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="blur-overlay"></div>
+  <div class="marquee">
+    <marquee behavior="scroll" direction="left">Unicorn.......🦄</marquee>
+  </div>
+
+  <div class="page-layout">
+    <div class="left-title">
+      <h1><span class="glow-cycle">기념하는 방법</span></h1>
+    </div>
+    <div class="right-content">
+      <div class="main-text">
+        <img src="unicornparty.png" alt="Balloon Party" class="img-top-align" />
+        <p>우리는 다양한 방법으로 유니콘의 날을 기념할 수 있다. 예를 들면, 유니콘의 날을 맞이하여 유니콘에 대해 알아보는 시간을 가질 수 있다. 유니콘과 관련된 역사를 찾아보거나 유니콘이 등장하는 소설이나 영화를 감상해 보자.</p>
+        <p>아니면 유니콘의 날을 기념하는 파티를 여는 것도 훌륭한 선택지다. 색색의 재료를 이용하여 유니콘 그림을 그리고 유니콘 스타일로 분장한 후 즐거운 시간을 보낼 수 있다.</p>
+        <p class="force-left">그 후, 유니콘 테마로 곳곳을 장식하여 알록달록한 파티 공간을 만들어 보자.</p>
+
+        <img src="party.png" alt="Cupcake Party" class="img-top-align" />
+
+        <p>파티에는 맛있는 음식이 필수다. 이왕 준비하는거 유니콘 같은 간식을 만들어보는 것도 좋은 방법이다.스프링클이나 글리터로 장식한 <a href="기념_컵케이크2.html"><span class="glow-word">유니콘 컵케이크</span></a>나 <a href="기념_쿠키2.html"><span class="glow-word">유니콘 쿠키</span></a>를 만들면 파티와 어울리는 멋진 간식이 될 것이다.</p>
+        <p>물론 이러한 방법은 적당한 준비물과 시간을 요구한다. 만약 이 글을 읽고 있는 당신이 아주 간단하게 유니콘의 날을 기념하고 싶다면 그에 딱 맞는 방법이 존재한다. 바로 <a href="index.html"><span class="glow-word">유니콘의 날 웹사이트</span></a>를 감상하면 된다!</p>
+      </div>
+    </div>
+  </div>
+
+  <a href="index.html">
+    <img src="unicorn.png" id="unicornBanner" class="unicorn-banner" alt="Unicorn" />
+  </a>
+
+  <script>
+    const unicornBanner = document.getElementById("unicornBanner");
+    function resizeUnicorn() {
+      const layout = document.querySelector(".page-layout");
+      const h1Width = 200;
+      const gap = 40;
+      const pMaxWidth = 1000;
+      const padding = 60 * 2;
+      const totalUsed = h1Width + gap + pMaxWidth + padding;
+      const free = window.innerWidth - totalUsed;
+      unicornBanner.style.width = free > 0 ? Math.min(free, 400) + "px" : "0px";
+    }
+
+    const glowWords = document.querySelectorAll('.glow-word');
+    glowWords.forEach(word => {
+      word.addEventListener('mouseenter', () => {
+        glowWords.forEach(w => {
+          w.classList.remove('active');
+          w.classList.add('dimmed');
+        });
+        word.classList.add('active');
+        word.classList.remove('dimmed');
+      });
+      word.addEventListener('mouseleave', () => {
+        glowWords.forEach(w => {
+          w.classList.remove('dimmed');
+          w.classList.remove('active');
+        });
+      });
+    });
+
+    window.addEventListener("resize", resizeUnicorn);
+    window.addEventListener("load", () => {
+      document.querySelector(".unicorn-banner").classList.add("visible");
+      resizeUnicorn();
+    });
+  </script>
+</body>
+</html>
+

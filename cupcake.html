@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>유니콘 컵케이크 레시피</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@700&display=swap" rel="stylesheet" />
+  <style>
+    html, body {
+      margin: 0; padding: 0;
+      width: 100%; min-height: 100vh;
+      font-family: 'Noto Sans KR', sans-serif;
+      background: url('sky.png') center/cover fixed;
+      color: white;
+      overflow-x: hidden;
+    }
+    body::before {
+      content: ""; position: fixed; inset: 0;
+      background: rgba(0,0,0,0.3); z-index: 0;
+    }
+    .blur-overlay {
+      position: fixed;
+      inset: 0;
+      backdrop-filter: blur(5px);
+      z-index: 0;
+      pointer-events: none;
+    }
+    .marquee {
+      width: 100%;
+      color: white;
+      font-size: 16px;
+      font-weight: 500;
+      padding: 4px 0;
+      position: relative;
+      z-index: 1;
+    }
+
+    .page-layout {
+      display: flex;
+      align-items: flex-start;
+      padding: 50px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .left-title {
+      width: 200px;
+      flex-shrink: 0;
+    }
+
+    .left-title h1 {
+      margin: 0 0 30px 0;
+      font-size: 32px;
+      text-align: left;
+    }
+
+    .glow-cycle {
+      animation: glowPinkCycle 3s infinite ease-in-out;
+    }
+
+    @keyframes glowPinkCycle {
+      0%, 100% {
+        color: white;
+        text-shadow: none;
+      }
+      50% {
+        color: #ff4dfb;
+        text-shadow: 0 0 4px #ff4dfb, 0 0 8px #ff4dfb, 0 0 12px #ff4dfb;
+      }
+    }
+
+    .right-content {
+      flex: 1;
+      max-width: clamp(700px, 87vw, 1120px);
+      padding-right: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+      word-break: keep-all;
+hyphens: none;
+    }
+
+    .content-row {
+      display: flex;
+      gap: 40px;
+      align-items: flex-start;
+    }
+
+    .photo img {
+      width: 100%;
+      max-width: 400px;
+      margin-left: -40px;
+      margin-top: 50px;
+    }
+
+    .ingredients-methods {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+    }
+
+    .ingredients h2, .method h2 {
+      margin: 0 0 10px;
+      font-size: 24px;
+    }
+
+    .ingredients-split {
+      display: flex;
+      gap: 40px;
+    }
+
+    .ingredients-split ul {
+      margin: 0;
+      padding-left: 20px;
+      font-size: 18px;
+      line-height: 1.8;
+      color: white;
+    }
+
+    .method ol {
+      margin: 0;
+      padding-left: 20px;
+      font-size: 18px;
+      line-height: 1.8;
+      color: white;
+    }
+
+    .postit-note {
+      position: absolute;
+      top: 80px;
+      right: 100px;
+      width: 200px;
+      padding: 20px;
+      background: #fffdf7;
+      color: #333;
+      font-size: 14px;
+      line-height: 1.6;
+      box-shadow: 2px 4px 10px rgba(0,0,0,0.3);
+      transform: rotate(-4deg);
+      z-index: 5;
+      border-radius: 3px;
+    }
+
+    .unicorn-banner {
+      position: fixed;
+      bottom: 0;
+      right: 0;
+      z-index: 10;
+      opacity: 0;
+      transition: opacity .5s;
+      cursor: pointer;
+      width: 180px;
+    }
+
+    .unicorn-banner.visible {
+      opacity: 1;
+    }
+
+    @media (max-width: 768px){
+      .page-layout {
+        flex-direction: column;
+        padding: 20px;
+      }
+      .left-title {
+        width: 100%;
+        text-align: center;
+      }
+      .right-content {
+        padding-right: 0;
+      }
+      .content-row {
+        flex-direction: column;
+      }
+      .photo img {
+        max-width: 100%;
+      }
+      .ingredients-split {
+        flex-direction: column;
+      }
+      .postit-note {
+        position: static;
+        transform: none;
+        margin-top: 20px;
+      }
+    }
+    .memo-body {
+  display: block;
+  padding-left: 20px; /* ← 여기 숫자 키우면 더 오른쪽으로 감 */
+}
+  </style>
+</head>
+<body>
+  <div class="blur-overlay"></div>
+  <div class="marquee">
+    <marquee behavior="scroll" direction="left">Unicorn.......🦄</marquee>
+  </div>
+
+  <div class="page-layout">
+    <div class="left-title">
+      <h1><span class="glow-cycle">유니콘<br>컵케이크</span></h1>
+    </div>
+
+    <div class="right-content">
+      <div class="content-row">
+        <div class="photo">
+          <img src="cup.png" alt="Unicorn Cupcake">
+        </div>
+
+        <div class="ingredients-methods">
+          <div class="ingredients">
+            <h2>재료</h2>
+            <div class="ingredients-split">
+              <ul>
+                <li>흑설탕 150g</li>
+                <li>계란 2개</li>
+                <li>버터 100g</li>
+                <li>셀프라이징 밀가루 150g</li>
+                <li>메이플시럽 3큰술</li>
+              </ul>
+              <ul>
+                <li>바닐라추출물 1티스푼</li>
+                <li>우유 4티스푼</li>
+                <li>슈가파우더 300g</li>
+                <li>버터 200g</li>
+                <li>스프링클, 식용색소(3가지 색)</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="method">
+            <h2>만드는 방법</h2>
+            <ol>
+              <li>오븐을 180°C로 예열한다. 머핀 틀에 종이 컵을 깔아둔다.</li>
+              <li>볼에 실온의 버터와 흑설탕을 넣고 3~5분간 밝은 색이 될 때까지 휘핑한다.</li>
+              <li>계란을 하나씩 넣으며 잘 섞고, 밀가루를 체쳐 넣은 후 가볍게 섞는다.</li>
+              <li>완성된 반죽을 틀에 나누어 담고, 180°C에서 약 20분간 굽는다. 식힘망 위에서 완전히 식힌다.</li>
+              <li>메이플시럽, 바닐라추출물, 물 1큰술을 섞어 시럽을 만들고, 식은 컵케이크 위에 뿌린다.</li>
+              <li>버터크림은 슈가파우더, 버터, 우유, 바닐라추출물을 함께 휘핑해서 만들고, 4등분 후 3개의 식용색소를 넣는다.</li>
+              <li>3색 크림을 짤주머니에 나란히 넣고 컵케이크 위에 소용돌이 모양으로 짠다.</li>
+              <li>스프링클을 취향껏 뿌리면 완성! 냉장보관 후 하루 지나 먹어도 맛있다.</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="postit-note">
+      ✴︎ 난이도: 🦄 🦄<br>
+      ✴︎ 조리 시간: 약 40분<br>
+      ✴︎ 굽는 온도: 180°C<br>
+      ✴︎ 메모<br>
+      <span class="memo-body">
+        버터크림 색 조합에 따라 컵케이크 분위기가 확 달라진다.<br>
+        오븐에서 퍼지는 냄새 덕분에 혼자 만들어도 기분이 좋아지는 레시피!
+      </span>
+    </div>
+  </div>
+
+  <a href="index.html">
+    <img src="unicorn.png" id="unicornBanner" class="unicorn-banner" alt="Unicorn" />
+  </a>
+
+  <script>
+    const unicornBanner = document.getElementById("unicornBanner");
+
+    function resizeUnicorn() {
+      const layout = document.querySelector(".page-layout");
+      const h1Width = 200;
+      const gap = 40;
+      const pMaxWidth = 1000;
+      const padding = 60 * 2;
+      const totalUsed = h1Width + gap + pMaxWidth + padding;
+      const free = window.innerWidth - totalUsed;
+      unicornBanner.style.width = free > 0 ? Math.min(free, 400) + "px" : "0px";
+    }
+
+    window.addEventListener("resize", resizeUnicorn);
+    window.addEventListener("load", () => {
+      unicornBanner.classList.add("visible");
+      resizeUnicorn();
+    });
+  </script>
+</body>
+</html>

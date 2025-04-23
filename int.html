@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>흥미로운 이야기</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@700&display=swap" rel="stylesheet" />
+
+  <style>
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      width: 100vw;
+      height: 100vh;
+      font-family: 'Noto Sans KR', sans-serif;
+      color: white;
+    }
+
+    body {
+      position: relative;
+      background-image: url('sky.png');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.3);
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .unicorn-layout {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+      gap: 40px;
+      padding: 50px;
+    }
+
+    .unicorn-title {
+      flex-shrink: 0;
+      width: 200px;
+    }
+
+    .unicorn-title h1 {
+      margin: 0;
+      font-size: 32px;
+      line-height: 1.4;
+      position: relative;
+    }
+
+    .unicorn-paragraphs {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px 60px;
+      flex: 1;
+      max-width: 1200px;
+      hyphens: none;
+
+    }
+
+    .unicorn-item h2 {
+      font-size: 32px;
+      margin: 0 0 15px 0; /* ✅ 여기서 margin-top: 8px 만! */
+}
+    
+
+    .unicorn-item p {
+      font-size: 18px;
+      line-height: 1.8;
+      margin: 0;
+      word-break: keep-all;
+    }
+
+    .glow-cycle {
+      animation: glowPinkCycle 3s infinite ease-in-out;
+    }
+    .unicorn-item {
+  position: relative;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  overflow: hidden;
+}
+
+    @keyframes glowPinkCycle {
+
+      0%,
+      100% {
+        color: white;
+        text-shadow: none;
+      }
+
+      50% {
+        color: #ff4dfb;
+        text-shadow:
+          0 0 4px #ff4dfb,
+          0 0 8px #ff4dfb,
+          0 0 12px #ff4dfb;
+      }
+    }
+
+    .unicorn-banner {
+      position: fixed;
+      bottom: 0;
+      right: 0;
+      height: auto;
+      z-index: 10;
+      opacity: 0;
+      transition: opacity 0.5s ease;
+      cursor: pointer;
+    }
+
+    .unicorn-banner.visible {
+      opacity: 1;
+    }
+    .blur-overlay {
+      position: fixed;
+      inset: 0;
+      backdrop-filter: blur(5px);
+      z-index: 0;
+      pointer-events: none;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="blur-overlay" id="blurOverlay"></div>
+  <div style="width: 100%;  color: white; padding: 4px 0; font-size: 16px; font-weight: 500;">
+    <marquee behavior="scroll" direction="left">Unicorn.......🦄</marquee>
+  </div>
+
+  <div class="unicorn-layout">
+    <div class="unicorn-title">
+      <h1><span class="glow-cycle">흥미로운<br>이야기</span></h1>
+    </div>
+    <div class="unicorn-paragraphs">
+      <div class="unicorn-item">
+        <h2>✦ 스코틀랜드를 상징하는 유니콘 </h2>
+        <p>유니콘을 상징 동물로 삼은 곳이 있다. 바로 영국을 이루는 구성국 중 하나인 스코틀랜드다. 다시 말해서, 문장이나 기타 공식 문서에 유니콘이 등장한다는 뜻이다. 유니콘이 스코틀랜드 왕실 문장에
+          처음 등장한 것은 1500년대 중반경으로 두 마리의 유니콘이 국장을
+          지탱하는 형태였다. 현재는 잉글랜드를 상징하는 동물인 사자와 함께 국장을 지탱하는 형태이다.</p>
+      </div>
+      <div class="unicorn-item">
+        <h2>✦ 유니콘 증후군 </h2>
+        <p>사실 의학계에서 공식적으로 ‘유니콘 증후군’이라는 병이 등록된 적은 없다. 그러나 유니콘과 관련된 희귀질환이 존재하는데, 바로 ‘샤를 보네 증후군(Charles Bonnet
+          Syndrome)’이다.
+          샤를 보네 증후군이란 실명한 사람이 두뇌 손상으로 인해 환시를 끊임없이 겪게 되는 병을 말하는데, 해당 질환 때문에 유니콘의 형상을 보는 사람들이 존재한다.</p>
+      </div>
+      <div class="unicorn-item">
+        <h2>✦ 일각고래와 유니콘 </h2>
+        <p>수 세기 동안 사람들은 일각고래 뿔이 유니콘 뿔이라고 생각해 왔다. 일각고래의 뿔이 해안에 떠밀려 오면 사람들은 유니콘에서 나온 것이라고 추측했다. 하지만 일각고래의 뿔은 엄밀히 말하면 이빨, 즉
+          상아로 취급되며 당연히 유니콘과는 무관하다.</p>
+      </div>
+      <div class="unicorn-item">
+        <h2>✦ 성경 속 유니콘 </h2>
+        <p>킹 제임스 성경에는 유니콘이 여러 번 언급되지만, 많은 학자들은 이것이 '소' 또는 다른 동물을 뜻하는 단어의 오역이라고 생각한다. 또한 유대인의 민담에 나오는 거대한 동물인 레엠(Re’em)을
+          다시
+          언급하는 것일 가능성도 존재한다. 레엠은 노아가 대홍수 때 구하려 했던 동물이다.</p>
+      </div>
+      <div class="unicorn-item">
+        <h2>✦ 가루로 된 유니콘 뿔 </h2>
+        <p>과거의 사람들은 병을 낫게 해 줄 것 같은 온갖 이상한 물건들을 사곤 했다. 그들은 마법의 힘이 있는 유니콘 뿔을 가루로 만들어 먹으면 병이 나을 거라고 믿었다. 물론 그들이 구매한 가루는 유니콘
+          뿔이
+          아니고 일각고래 뿔이나 다른 동물의 뿔이었을 것이다.</p>
+      </div>
+      <div class="unicorn-item">
+        <h2>✦ 엘리자베스 1세 여왕과 유니콘 뿔 </h2>
+        <p>마틴 프로비셔라는 튜더 왕조의 탐험가가 캐나다 해안에서 이 뿔을 발견하여 엘리자베스 1세 여왕에게 선물했다. 예상했다시피 사실은 일각고래의 상아였다. 너무나 귀중하게 여겨져 '윈저의 뿔'로
+          알려졌지만 안타깝게도 남북
+          전쟁 중에 분실되었다.</p>
+      </div>
+      <div class="unicorn-item">
+        <h2>✦ 유니콘을 목격한 사람 </h2>
+        <p>이탈리아 탐험가 마르코 폴로는 여행 중에 유니콘을 목격했다고 기록했지만 아마 코뿔소나 다른 동물이었을 것이다. 로마 황제 율리우스 카이사르도 서유럽을 정복하려던 중 숲에서 유니콘을 목격했다고
+          주장했다.</p>
+      </div>
+      <div class="unicorn-item">
+        <h2>✦ 서커스 속 유니콘 </h2>
+        <p>1980년대 미국의 링링 브라더스 앤 바넘 & 베일리 서커스(Ringling Bros. and Barnum & Bailey Circus)는 뿔이 꽂힌 앙고라 염소를 유니콘으로 속이려고 시도했다.
+        </p>
+      </div>
+      <div class="unicorn-item">
+        <h2>✦ 유니콘 뿔로 만든 왕좌</h2>
+        <p> 덴마크 군주들이 17세기부터 사용한 덴마크 왕좌는 흰색이며 전설에 따르면 유니콘 뿔로 만들어졌다고 한다. 하지만 짐작했다시피 유니콘 뿔이 아니라 일각고래의 상아로 만들어졌다.</p>
+      </div>
+    </div>
+  </div>
+
+  <a href="index.html">
+    <img src="unicorn.png" id="unicornBanner" class="unicorn-banner" alt="Unicorn" />
+  </a>
+
+  <script>
+    const unicornBanner = document.getElementById("unicornBanner");
+
+    function resizeUnicorn() {
+      const h1Width = 200;
+      const gap = 40;
+      const pMaxWidth = 1000;
+      const padding = 60 * 2;
+      const totalUsed = h1Width + gap + pMaxWidth + padding;
+      const free = window.innerWidth - totalUsed;
+      unicornBanner.style.width = free > 0 ? Math.min(free, 400) + "px" : "0px";
+    }
+
+    window.addEventListener("resize", resizeUnicorn);
+    window.addEventListener("load", () => {
+      document.querySelector(".unicorn-banner").classList.add("visible");
+      resizeUnicorn();
+    });
+  </script>
+</body>
+
+</html>

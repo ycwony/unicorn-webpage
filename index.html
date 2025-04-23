@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>유니콘에 대한 흥미로운 사실</title>
+
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@700&display=swap" as="style">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@700&display=swap" media="print" onload="this.media='all'">
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { width: 100vw; }
+
+    body {
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+      font-family: 'Noto Sans KR', sans-serif;
+      background-image: url('sky.png');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+    }
+
+    .blur-overlay {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw; height: 100vh;
+      backdrop-filter: none;
+      transition: backdrop-filter 0.5s ease;
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    .logo-container {
+      position: fixed;
+      top: 50%; left: 50%;
+      width: 800px; height: 800px;
+      transform: translate(-50%, -50%);
+      z-index: 2;
+      pointer-events: auto;
+    }
+
+    .logo {
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 100%; height: auto;
+      transition: opacity 0.3s ease;
+    }
+
+    .white-logo { opacity: 1; }
+    .pink-logo { opacity: 0; }
+
+    .content {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw; height: 100vh;
+      background-color: rgba(0, 0, 0, 0.3);
+      color: white;
+      z-index: 3;
+      padding: 84px 40px;
+      display: flex;
+      flex-direction: row;
+      gap: 40px;
+      overflow-y: auto;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.5s ease;
+    }
+
+    .content.visible {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    h1 {
+      width: 200px;
+      flex-shrink: 0;
+      font-size: 32px;
+      line-height: 1.4;
+    }
+
+    .text-body {
+      font-size: 32px;
+      line-height: 1.8;
+      max-width: 1060px;
+      word-break: keep-all;
+      hyphens: none;
+    }
+
+    .text-body p {
+      margin-top: -6px;
+      margin-bottom: 30px;
+    }
+
+    .text-body p:last-of-type {
+      padding-bottom: 30px;
+    }
+
+    .glow-word {
+  font-weight: 700;
+  cursor: pointer;
+  color: white;
+  position: relative;
+  z-index: 10;
+  text-decoration: none;
+  text-shadow: 0 0 2px rgba(255, 255, 255, 0.4);
+  animation: subtleGlow 2s ease-in-out infinite;
+  transition: opacity 0.3s ease;
+}
+
+@keyframes subtleGlow {
+  0%, 100% {
+    text-shadow: 0 0 2px rgba(255, 255, 255, 0.4);
+    opacity: 0.8;
+  }
+  50% {
+    text-shadow: 0 0 6px #ffbbfe, 0 0 12px #ffbbfe;
+    opacity: 1;
+  }
+}
+
+    .glow-word.dimmed { opacity: 0.3; }
+    .glow-word.active {
+      color: #ff4dfb;
+      filter: drop-shadow(0 0 1px #ff4dfb) drop-shadow(0 0 3px #ff4dfb);
+      opacity: 1;
+    }
+
+    .unicorn-banner {
+      position: fixed;
+      bottom: 0;
+      right: 0;
+      height: auto;
+      z-index: 5;
+      opacity: 0;
+      transition: opacity 0.5s ease;
+      cursor: pointer;
+    }
+
+    .unicorn-banner.visible {
+      opacity: 1;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+  </style>
+</head>
+<body>
+  <div style="width: 100%; color: white; padding: 1px 0; font-size: 16px; font-weight: 500;">
+    <marquee behavior="scroll" direction="left">Unicorn.......🦄</marquee>
+  </div>
+
+  <div class="blur-overlay" id="blurOverlay"></div>
+
+  <div class="logo-container" id="logoContainer">
+    <img src="title_white05.png" class="logo white-logo" id="logoWhite">
+    <img src="title_pink05.png" class="logo pink-logo" id="logoPink">
+  </div>
+
+  <div class="content" id="contentBox">
+    <h1>유니콘에 대한<br>흥미로운 사실</h1>
+    <div class="text-body">
+      <p>
+        <a href="1.html"><span class="glow-word">4월 9일</span></a>은 <a href="unicorn day.html"><span class="glow-word">국제 유니콘의 날</span></a>이다.
+      </p>
+      <p>
+        상상력과 순수함을 상징하는 <a href="about.html"><span class="glow-word">유니콘</span></a>처럼, 이 날은 현실에서 잠시 벗어나 환상과 마법의 세계를 떠올릴 수 있도록 만든 특별한 날이다.
+        유니콘은 전설 속에서 한 개의 뿔을 가진 말의 모습으로 등장하며, 오랜 시간 동안 신비롭고 희귀한 존재로 여겨져 왔다. 우리가 아는 유니콘은 상상의 존재이지만, 그에 얽힌 <a href="int.html"><span class="glow-word">흥미로운 이야기</span></a>들은 인간의 역사와 문화 속에 깊이 스며들어 있다.
+      </p>
+      <p>
+        중세 유럽에서는 유니콘의 뿔로 여겨지는 물건이 왕실의 보물로 여겨졌고, 치유의 힘이 있다고 믿어 고가에 거래되기도 했다. 이처럼 유니콘은 단지 동화 속 존재가 아니라 시대마다 다른 모습으로 사랑받아 온 문화적 아이콘이었다.
+      </p>
+      <p>
+        특히 오늘날에는 유니콘이 가진 상징성을 활용해 다양한 콘텐츠와 제품이 제작되고 있다.
+        유니콘은 다양한 <a href="movie.html"><span class="glow-word">매체 속</span></a>에서 상징성과 환상을 지닌 캐릭터로 자주 등장하는데 
+        동화, 애니메이션, 영화, 게임 등에서 유니콘은 순수함, 희망, 또는 마법의 존재로 표현된다. 이러한 이미지 덕분에 유니콘은 어린이뿐만 아니라 MZ세대에게도 사랑받는 캐릭터로 자리 잡고 있다. 
+        뿐만 아니라 <a href="unicornpower2.html"><span class="glow-word">유니콘의 능력</span></a>을 표현한 캐릭터, 상품, 디자인 등이 일상에 자연스럽게 녹아들며 많은 사람의 감성을 자극하고 있다.
+      </p>
+      <p>
+        그래서일까, 유니콘의 날을 <a href="cel.html"><span class="glow-word">기념하는 방법</span></a> 또한 매우 다양하다. <a href="cupcake.html"><span class="glow-word">유니콘 컵케이크</span></a>를 만들거나, <a href="cookie.html"><span class="glow-word">유니콘 쿠키</span></a>를 꾸미는 것은 물론, 관련 소품을 활용해 파티를 열거나 유니콘이 등장하는 영화나 책을 감상하며 하루를 특별하게 보낼 수 있다.
+      </p>
+      <p>
+        그리고 <a href="holidays.html"><span class="glow-word">특별한 기념일</span></a>은 유니콘의 날 외에도 많다. 우리가 평소 지나치기 쉬운 날들 속에서도 상상력과 감성을 되살릴 수 있는 기념일들이 우리 곁에 있다.
+        유니콘의 날은 그 중 하나일 뿐, 어쩌면 더 많은 날들이 우리를 기다리고 있을지도 모른다.
+     
+      <p>
+        하지만 이 웹페이지는 유니콘의 날을 즐기는 다양한 방식과 그 속에 담긴 의미만을 다루려고 한다.
+        <a href="https://www.youtube.com/watch?v=5jVZeXg-qVY"><span class="glow-word">그럼 지금부터 유니콘의 날의 매력에 빠져보자!</span></a>
+      </p>
+    </div>
+  </div>
+
+  <img src="unicorn.png" id="unicornBanner" class="unicorn-banner" alt="Unicorn" />
+
+  <script>
+    window.addEventListener("DOMContentLoaded", () => {
+      const logoWhite = document.getElementById("logoWhite");
+      const logoPink = document.getElementById("logoPink");
+      const logoContainer = document.getElementById("logoContainer");
+      const contentBox = document.getElementById("contentBox");
+      const blurOverlay = document.getElementById("blurOverlay");
+      const unicornBanner = document.getElementById("unicornBanner");
+
+      document.addEventListener("mousemove", (e) => {
+        const percent = e.clientX / window.innerWidth;
+        logoWhite.style.opacity = `${1 - percent}`;
+        logoPink.style.opacity = `${percent}`;
+      });
+
+      logoWhite.addEventListener("mouseenter", showContent);
+      logoPink.addEventListener("mouseenter", showContent);
+      unicornBanner.addEventListener("click", returnToStart);
+      window.addEventListener("resize", resizeUnicorn);
+      resizeUnicorn();
+
+      function showContent() {
+        logoContainer.style.opacity = "0";
+        contentBox.classList.add("visible");
+        blurOverlay.style.backdropFilter = "blur(5px)";
+        unicornBanner.classList.add("visible");
+        resizeUnicorn();
+      }
+
+      function returnToStart() {
+        logoContainer.style.opacity = "1";
+        contentBox.classList.remove("visible");
+        blurOverlay.style.backdropFilter = "none";
+        unicornBanner.classList.remove("visible");
+      }
+
+      function resizeUnicorn() {
+        const contentPadding = 60;
+        const h1Width = 200;
+        const gap = 40;
+        const pMaxWidth = 1000;
+        const totalUsedWidth = contentPadding * 2 + h1Width + gap + pMaxWidth;
+        const freeWidth = window.innerWidth - totalUsedWidth;
+        unicornBanner.style.width = freeWidth > 0 ? Math.min(freeWidth, 400) + "px" : "0px";
+      }
+
+      const glowWords = document.querySelectorAll('.glow-word');
+      glowWords.forEach(word => {
+        word.addEventListener('mouseenter', () => {
+          glowWords.forEach(w => {
+            w.classList.remove('active');
+            w.classList.add('dimmed');
+          });
+          word.classList.add('active');
+          word.classList.remove('dimmed');
+        });
+        word.addEventListener('mouseleave', () => {
+          glowWords.forEach(w => {
+            w.classList.remove('dimmed');
+            w.classList.remove('active');
+          });
+        });
+      });
+    });
+  </script>
+</body>
+</html>

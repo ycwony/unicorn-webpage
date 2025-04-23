@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>특별한 기념일</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@700&display=swap" rel="stylesheet" />
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      width: 100vw;
+      height: 100vh;
+      font-family: 'Noto Sans KR', sans-serif;
+      color: white;
+      background-image: url('sky.png');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.3);
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .marquee-container {
+      width: 100%;
+      color: white;
+      padding: 1px 0;
+      font-size: 16px;
+      font-weight: 500;
+    }
+
+    .unicorn-layout {
+      display: flex;
+      padding: 50px;
+      gap: 40px;
+      align-items: flex-start;
+      position: relative;
+      z-index: 1;
+    }
+
+    h1 {
+      width: 200px;
+      flex-shrink: 0;
+      font-size: 32px;
+      line-height: 1.4;
+    }
+
+    .glow-cycle {
+      animation: glowPinkCycle 3s infinite ease-in-out;
+    }
+
+    @keyframes glowPinkCycle {
+      0%, 100% { color: white; text-shadow: none; }
+      50% { color: #ff4dfb; text-shadow: 0 0 4px #ff4dfb, 0 0 8px #ff4dfb; }
+    }
+
+    .image-side {
+      flex: 1;
+      max-width: calc(100% - 240px);
+      padding-top: 8px;
+    }
+
+    .image-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
+    }
+
+    .section {
+      width: calc((100% - 48px) / 3);
+      break-inside: avoid;
+    }
+
+    .section:nth-child(n+7) {
+      width: calc((100% - 24px) / 2);
+    }
+
+    .image-item {
+      width: 100%;
+      position: relative;
+      overflow: hidden;
+      margin-bottom: 8px;
+    }
+
+    .image.with-overlay {
+      width: 100%;
+      height: auto;
+      aspect-ratio: 4 / 3;
+      background-size: cover;
+      background-position: center;
+      position: relative;
+      transition: transform 0.5s ease;
+    }
+
+    .image.with-overlay:hover {
+      transform: scale(1.03);
+    }
+
+    .overlay, .image-blur-overlay {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      opacity: 0;
+      filter: blur(2px);
+      transition: opacity 0.6s ease, filter 0.6s ease;
+    }
+
+    .overlay {
+      background: #92a1c6;
+      color: #f5f6fa;
+      font-size: 18px;
+      line-height: 1.8;
+      padding: 30px;
+      box-sizing: border-box;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: left;
+    }
+
+    .with-overlay:hover .overlay,
+    .with-overlay:hover .image-blur-overlay {
+      opacity: 1;
+      filter: blur(0);
+    }
+
+    .caption {
+      font-weight: 600;
+      margin-top: 8px;
+      color: white;
+    }
+
+    .highlight {
+      color: #ffbbfe;
+      font-weight: bold;
+      text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+    }
+
+    .unicorn-banner {
+      position: fixed;
+      bottom: 0;
+      right: 0;
+      width: 300px;
+      opacity: 0;
+      transition: opacity 1s ease;
+      z-index: 10;
+      cursor: pointer;
+    }
+
+    .unicorn-banner.visible {
+      opacity: 1;
+    }
+    .blur-overlay {
+      position: fixed;
+      inset: 0;
+      backdrop-filter: blur(5px);
+      z-index: 0;
+      pointer-events: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="blur-overlay"></div>
+  <div class="marquee-container">
+    <marquee behavior="scroll" direction="left">Unicorn.......🦄</marquee>
+  </div>
+
+  <div class="unicorn-layout">
+    <h1><span class="glow-cycle">특별한 기념일</span></h1>
+
+    <div class="image-side">
+      <section id="inspired-layout">
+        <div class="image-container">
+          <div class="section"><div class="image-item"><div class="image with-overlay" style="background-image: url('dragon.png');"><div class="overlay"><p><span class="highlight">1월 16일</span><br>존재를 기념하며 전 세계에서 축하하는 날이다. 다양한 문화 속 드래곤의 의미를 돌아보는 기회를 제공한다.</p></div></div></div><div class="caption">드래곤 데이</div></div>
+          <div class="section"><div class="image-item"><div class="image with-overlay" style="background-image: url('fairyy.jpg');"><div class="overlay"><p><span class="highlight">6월 24일</span><br>국제 요정의 날은 자연과 조화를 이루는 신비로운 존재인 요정을 기념하는 날로, 상상력을 자극하는 다양한 행사가 열린다.</p></div></div></div><div class="caption">국제 요정의 날</div></div>
+          <div class="section"><div class="image-item"><div class="image with-overlay" style="background-image: url('krampuss.jpg');"><div class="overlay"><p><span class="highlight">12월 5일</span><br>크람푸스의 밤은 중세 유럽 전통에서 유래된 행사로, 착하지 않은 아이들을 벌하는 괴물 크람푸스를 기리는 날이다.</p></div></div></div><div class="caption">크람푸스의 밤</div></div>
+          <div class="section"><div class="image-item"><div class="image with-overlay" style="background-image: url('ghost.png');"><div class="overlay"><p><span class="highlight">9월 30일</span><br>세계 유령의 날은 유령과 신비한 존재들을 기념하며 다양한 문화 행사와 축제가 열리는 날이다.</p></div></div></div><div class="caption">세계 유령의 날</div></div>
+          <div class="section"><div class="image-item"><div class="image with-overlay" style="background-image: url('sea.png');"><div class="overlay"><p><span class="highlight">6월 8일</span><br>해양의 날은 바다와 해양 생태계의 중요성을 되새기고 보호를 촉구하는 세계적인 기념일이다.</p></div></div></div><div class="caption">해양의 날</div></div>
+          <div class="section"><div class="image-item"><div class="image with-overlay" style="background-image: url('magic.png');"><div class="overlay"><p><span class="highlight">10월 31일</span><br>매직 데이는 마법의 세계를 기리는 날로, 상상력과 신비로움을 경험할 수 있는 다양한 행사가 열린다.</p></div></div></div><div class="caption">매직 데이</div></div>
+          <div class="section"><div class="image-item"><div class="image with-overlay" style="background-image: url('cat.png');"><div class="overlay"><p><span class="highlight">8월 8일</span><br>세계 고양이의 날은 고양이를 사랑하는 사람들과 함께 고양이의 가치를 되새기는 날이다.</p></div></div></div><div class="caption">세계 고양이의 날</div></div>
+          <div class="section"><div class="image-item"><div class="image with-overlay" style="background-image: url('harry.png');"><div class="overlay"><p><span class="highlight">7월 31일</span><br>해리 포터의 날은 마법과 환상, 용기와 우정을 기리는 행사로, 해리 포터 팬들이 함께 모여 축하하는 날이다.</p></div></div></div><div class="caption">해리포터의 날</div></div>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <!-- 🦄 유니콘 배너 추가 -->
+  <a href="index.html">
+    <img src="unicorn.png" id="unicornBanner" class="unicorn-banner" alt="Unicorn" />
+  </a>
+
+  <script>
+    const unicornBanner = document.getElementById("unicornBanner");
+
+    function resizeUnicorn() {
+      const layout = document.querySelector(".unicorn-layout");
+      const h1Width = 200;
+      const gap = 40;
+      const maxImageWidth = 1000;
+      const padding = 100;
+      const totalUsed = h1Width + gap + maxImageWidth + padding;
+      const free = window.innerWidth - totalUsed;
+      unicornBanner.style.width = free > 0 ? Math.min(free, 400) + "px" : "0px";
+    }
+
+    window.addEventListener("resize", resizeUnicorn);
+    window.addEventListener("DOMContentLoaded", resizeUnicorn);
+    window.addEventListener("load", () => {
+  const banner = document.getElementById("unicornBanner");
+  if (banner) {
+    banner.classList.add("visible");
+    resizeUnicorn();
+  }
+});
+  </script>
+
+</body>
+</html>

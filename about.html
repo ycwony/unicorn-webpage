@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>유니콘이란 무엇인가</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@700&display=swap" rel="stylesheet" />
+
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100vw;
+      height: 100vh;
+      font-family: 'Noto Sans KR', sans-serif;
+      color: white;
+    }
+
+    body {
+      position: relative;
+      background-image: url('sky.png');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.3);
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .unicorn-layout {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+      gap: 40px;
+      padding: 50px;
+    }
+
+    .unicorn-layout h1 {
+      margin: 0;
+      font-size: 32px;
+      line-height: 1.8;
+      width: 200px;
+      flex-shrink: 0;
+    }
+
+    .unicorn-layout p {
+      font-size: 32px;
+      max-width: 1000px;
+      margin: 0;
+      hyphens: none;
+      word-break: keep-all;
+      overflow-wrap: break-word;
+      line-height: 1.8;
+    }
+
+    .glow-cycle {
+      animation: glowPinkCycle 3s infinite ease-in-out;
+    }
+
+    @keyframes glowPinkCycle {
+      0%, 100% { color: white; text-shadow: none; }
+      50% { color: #ff4dfb; text-shadow: 0 0 4px #ff4dfb, 0 0 8px #ff4dfb, 0 0 12px #ff4dfb; }
+    }
+
+    .unicorn-banner {
+      position: fixed;
+      bottom: 0;
+      right: 0;
+      height: auto;
+      z-index: 10;
+      opacity: 0;
+      transition: opacity 0.5s ease;
+      cursor: pointer;
+    }
+
+    .unicorn-banner.visible {
+      opacity: 1;
+    }
+
+    .glow-word {
+      font-weight: 700;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      color: white;
+      text-shadow: 0 0 1px white;
+      position: relative;
+      z-index: 10;
+    }
+
+    .glow-word.dimmed { opacity: 0.3; }
+
+    .glow-word.active {
+      color: #ff4dfb;
+      filter: drop-shadow(0 0 1px #ff4dfb) drop-shadow(0 0 3px #ff4dfb);
+      opacity: 1;
+    }
+
+    .unicorn-paragraphs .ancient-record {
+      margin: 60px 0;
+    }
+
+    .section-divider {
+      border: none;
+      border-top: 1px solid white;
+      margin: 40px 0;
+      opacity: 0.5;
+    }
+
+    .dictionary-block {
+      margin-top: 20px;
+      margin-bottom: 60px;
+    }
+
+    .definition-block {
+      margin-bottom: 40px;
+    }
+
+    .ex p {
+      font-size: 18px;
+      line-height: 1.8;
+      color: #cccccc;
+      font-style: italic;
+      margin-top: 4px;
+      margin-bottom: 4px;
+    }
+    .tag-box {
+  display: inline-block;
+  font-size: 32px;
+  padding: 2px 6px;
+  background-color: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 2px;
+  color: #fff;
+  font-weight: 400;
+  vertical-align: middle;
+}
+.ancient-record {
+  max-width: 1000px;
+  margin: 60px auto;
+}
+  </style>
+</head>
+<body>
+  <div style="width: 100%;  color: white; padding: 1px 0; font-size: 16px; font-weight: 500;">
+    <marquee behavior="scroll" direction="left">Unicorn.......🦄</marquee>
+  </div>
+
+  <div class="unicorn-layout">
+    <div>
+      <h1><span class="glow-word glow-cycle">유니콘</span></h1>
+    </div>
+    <div class="unicorn-paragraphs">
+      <p>유니콘은 고대 바빌로니아, 인더스 문명, 켈트 신화 등 다양한 고대 문화에 등장하는 신화 속 생명체다. 켈트 신화에서는 유니콘을 순수함, 순진함, 힘의 상징으로 여겼으며, 스코틀랜드에서는 자유와 독립을 상징하는 국가지정 동물로 삼았다. 중세 유럽에서는 유니콘(일각수)이 동물 백과사전과 종교적 문헌에 자주 등장했으며, 순결과 신성함을 상징하는 존재로 인식되었다. 특히, 유니콘의 뿔은 치유와 신비한 힘을 지녔다고 믿어져 왕족과 귀족 사이에서 귀하게 여겨졌다. 오늘날 유니콘은 현실에 존재하지 않는 이상과 환상을 상징하며, 문학과 예술, 대중문화 속에서 순수하고 환상적인 존재로 꾸준히 사랑받고 있다.</p>
+      <hr class="section-divider" />
+      <p>Plinius, Naturalis Historia, VIII, 31 (AD 77-79)</p>
+      <div class="ancient-record">
+        <div style="display: flex; gap: 60px;">
+          <div style="flex-basis: 50%; max-width: 480px;">
+            <p style="font-size: 18px; color: #cccccc; line-height: 1.8;">
+              In India sunt boves solidis ungulis, unicornes, et fera nomine axin hinnulei pelle pluribus candidioribusque maculis. Fera monoceros asperrima est, corpore equo similis, capite cervino, pedibus elephantinis, cauda suilla, mugitu gravi; cornu nigro in media fronte prominente duorum cubitorum. Hanc feram vivam capi negant.
+            </p>
+          </div>
+          <div style="flex-basis: 50%; max-width: 480px;">
+            <p style="font-size: 18px; color: #cccccc; line-height: 1.8;">
+              인도에는 단단한 발굽과 하나의 뿔을 가진 소, 그리고 ‘axis’라 불리는 사슴 가죽에 흰 점이 많은 야생 동물이 있다. 또 하나, '일각수(monoceros)'라 불리는 매우 사나운 짐승이 존재하는데, 몸은 말과 비슷하고, 머리는 사슴, 발은 코끼리, 꼬리는 멧돼지를 닮았다. 이마 한가운데에는 약 2큐빗(90cm) 길이의 검은 뿔이 하나 솟아 있으며, 이 동물은 살아있는 채로는 결코 포획할 수 없다고 전해진다.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      
+      <p>플리니우스의 이 기록은, 후대 유니콘 전설의 초기 이미지 형성에 영향을 준 중요한 자료로 여겨진다. 오늘날에는 이 묘사가 인도코뿔소를 설명한 것이라는 해석이 일반적이다.</p>
+      <hr class="section-divider" />
+    </div>
+  </div>
+  <div class="unicorn-layout">
+    <div>
+      <h1>유니콘</h1>
+    </div>
+    <div class="unicorn-paragraphs">
+      <div class="dictionary-block">
+        <p><span class="tag-box">🦄 유니콘 [유니콘]</span></p>
+        <h3>(명사)</h3>
+
+        <div class="definition-block">
+          <p>앞이마에 하나의 뿔이 자라난, 말과 닮은 상상의 흰 생명체</p>
+          <div class="ex">
+            <p>예문 1: 유니콘은 오랫동안 순수함과 마법을 상징해 왔다.</p>
+            <p>예문 2: 고대 신화 속 유니콘은 신성한 존재로 여겨졌다.</p>
+          </div>
+        </div>
+
+        <div class="definition-block">
+          <p>기업 가치가 10억 달러 이상으로 평가되는 신생 스타트업 기업</p>
+          <div class="ex">
+            <p>예문 1: 그 회사는 창업 3년 만에 유니콘 기업 반열에 올랐다.</p>
+            <p>예문 2: 투자자들은 또 다른 유니콘을 찾기 위해 스타트업 시장을 주시하고 있다.</p>
+          </div>
+        </div>
+
+        <div class="definition-block">
+          <p>찾기 어렵거나 존재하기 힘든 사람 또는 대상</p>
+          <div class="ex">
+            <p>예문 1: 진정으로 정직한 정치인은 유니콘 같은 존재로 여겨진다.</p>
+            <p>예문 2: 완벽한 일자리를 찾는 것은 유니콘을 찾는 것만큼 어렵다.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="dictionary-block">
+        <p><span class="tag-box">🦄 유니콘 [유니콘]</span></p>
+        <h3>(형용사)</h3>
+
+        <div class="definition-block">
+          <p>보라색, 분홍색, 흰색, 연파란색, 연두색 등이 조합된 화려하고 환상적인 색조를 가진. 주로 음식, 의상, 장식 등에 사용된다.</p>
+          <div class="ex">
+            <p>예문 1: 유니콘 효과를 내는 가장 쉬운 방법은 분홍색과 연두색 같은 파스텔 색상을 활용하는 것이다.</p>
+            <p>예문 2: 우리는 유니콘 색상으로 디자인된 일곱 가지 종류의 파티 장식 제품을 제공한다.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <a href="index.html">
+    <img src="unicorn.png" id="unicornBanner" class="unicorn-banner" alt="Unicorn" />
+  </a>
+
+
+  <script>
+    const unicornBanner = document.getElementById("unicornBanner");
+
+    function resizeUnicorn() {
+      const layout = document.querySelector(".unicorn-layout");
+      const h1Width = 200;
+      const gap = 40;
+      const pMaxWidth = 1000;
+      const padding = 60 * 2;
+      const totalUsed = h1Width + gap + pMaxWidth + padding;
+      const free = window.innerWidth - totalUsed;
+      unicornBanner.style.width = free > 0 ? Math.min(free, 400) + "px" : "0px";
+    }
+
+    window.addEventListener("resize", resizeUnicorn);
+    window.addEventListener("load", () => {
+      document.querySelector(".unicorn-banner").classList.add("visible");
+      resizeUnicorn();
+    });
+  </script>
+ 
+  </body>
+</html>
